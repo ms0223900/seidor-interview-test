@@ -17,13 +17,14 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const {
+    messages,
     localeVal,
     handleChangeLocale,
   } = useLocale();
   const classes = useStyles();
 
   return (
-    <IntlProvider locale={localeVal}>
+    <IntlProvider locale={localeVal} messages={messages}>
       <div className={classes.root}>
         <Header
           localeVal={localeVal}

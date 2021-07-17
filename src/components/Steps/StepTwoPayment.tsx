@@ -4,6 +4,7 @@ import { stepTitles } from 'View/StepView/configs';
 import { ArrowLeft, ArrowRight, CreditCard } from '@material-ui/icons';
 import images from 'static/images';
 import { StepTwoPaymentProps } from './types';
+import IntlFormattedMessage from 'components/Common/IntlFormattedMessage';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,12 +40,14 @@ const StepTwoPayment = (props: StepTwoPaymentProps) => {
 
   return (
     <Box>
-      <Typography variant={'h4'}>
-        {stepTitles[1]}
-      </Typography>
-      <Typography>
-        {'After making the payment you will receive a con'}
-      </Typography>
+      <div className={`${'title-info-wrapper'}`}>
+        <Typography variant={'h4'}>
+          {stepTitles[1]}
+        </Typography>
+        <Typography>
+          {'After making the payment you will receive a con'}
+        </Typography>
+      </div>
       <Box className={classes.bottomWrapper}>
         <Box className={classes.infoWrapper}>
           <Box>
@@ -67,14 +70,18 @@ const StepTwoPayment = (props: StepTwoPaymentProps) => {
         <Box className={classes.buttonsWrapper}>
           <Button variant={'outlined'} color={'primary'} onClick={onBack} disabled={loading}>
             <ArrowLeft />
-            <Typography>{'Back'}</Typography>
+            <IntlFormattedMessage
+              localeKey={'back'}
+            />
           </Button>
           <Button variant={'outlined'} color={'primary'} onClick={onPay} disabled={loading}>
             {loading ? (
               <CircularProgress />
             ) : (
               <>
-                <Typography>{'Pay'}</Typography>
+                <IntlFormattedMessage
+                  localeKey={'button.pay'}
+                />
                 <ArrowRight />
               </>
             )}

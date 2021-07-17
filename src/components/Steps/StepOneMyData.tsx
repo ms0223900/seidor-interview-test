@@ -3,6 +3,7 @@ import { Box, Button, makeStyles, TextField, Typography } from '@material-ui/cor
 import { ArrowRight, Title } from '@material-ui/icons';
 import { stepTitles } from 'View/StepView/configs';
 import { StepOneMyDataProps } from './types';
+import IntlFormattedMessage from 'components/Common/IntlFormattedMessage';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,12 +31,14 @@ const StepOneMyData = (props: StepOneMyDataProps) => {
   
   return (
     <Box>
-      <Typography variant={'h4'}>
-        {stepTitles[0]}
-      </Typography>
-      <Typography>
-        {'Please enter your personal data and press continue'}
-      </Typography>
+      <div className={`${'title-info-wrapper'}`}>
+        <Typography variant={'h4'}>
+          {stepTitles[0]}
+        </Typography>
+        <Typography>
+          {'Please enter your personal data and press continue'}
+        </Typography>
+      </div>
       <Box className={classes.inputWrapper}>
         {(inputKeys).map((key) => (
           <Box paddingBottom={3}>
@@ -60,7 +63,9 @@ const StepOneMyData = (props: StepOneMyDataProps) => {
             disabled={!(values.lastName && values.name)}
             onClick={onContinue}
           >
-            {'Continue'}
+            <IntlFormattedMessage 
+              localeKey={'continue'}
+            />
             <ArrowRight />
           </Button>
         </Box>
