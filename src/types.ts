@@ -1,0 +1,1 @@
+export type CallBack<Params extends any=[], Return extends any={}> = (params?: Params) => Return

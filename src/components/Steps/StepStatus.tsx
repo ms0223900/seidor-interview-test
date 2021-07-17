@@ -3,6 +3,7 @@ import { Box, makeStyles, Typography } from '@material-ui/core';
 import { CheckOutlined } from '@material-ui/icons';
 import { SingleStepStatusData, StepStatusItemProps, StepStatusProps } from './types';
 import StepIcon from './StepIcon';
+import { stepTitles } from 'View/StepView/configs';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,9 +35,6 @@ const StepItem = (props: StepStatusItemProps) => {
   );
 };
 
-const stepTitles = [
-  'My Data', 'Payment'
-];
 const getStepListData = (stepNow: number): SingleStepStatusData[] => stepTitles.map((title, i) => ({
   stepTitle: title,
   stepNum: i + 1,

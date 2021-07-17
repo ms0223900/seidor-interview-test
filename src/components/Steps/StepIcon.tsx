@@ -1,7 +1,7 @@
-import { Box, makeStyles, Theme } from "@material-ui/core";
-import { CheckOutlined } from "@material-ui/icons";
-import { memo } from "react";
-import { StepStatusItemProps } from "./types";
+import { Box, makeStyles, Theme } from '@material-ui/core';
+import { CheckOutlined } from '@material-ui/icons';
+import { memo } from 'react';
+import { StepStatusItemProps } from './types';
 
 export interface StepIconProps extends Pick<StepStatusItemProps, 'isDone' | 'stepNum'> {
   
