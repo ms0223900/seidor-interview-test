@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/seidor-interview-test/static/css/main.6e34615a.chunk.css",
+    "main.js": "/seidor-interview-test/static/js/main.b95a689b.chunk.js",
+    "main.js.map": "/seidor-interview-test/static/js/main.b95a689b.chunk.js.map",
+    "runtime-main.js": "/seidor-interview-test/static/js/runtime-main.62c9886a.js",
+    "runtime-main.js.map": "/seidor-interview-test/static/js/runtime-main.62c9886a.js.map",
+    "static/js/2.d20bc042.chunk.js": "/seidor-interview-test/static/js/2.d20bc042.chunk.js",
+    "static/js/2.d20bc042.chunk.js.map": "/seidor-interview-test/static/js/2.d20bc042.chunk.js.map",
+    "static/js/3.1ff30275.chunk.js": "/seidor-interview-test/static/js/3.1ff30275.chunk.js",
+    "static/js/3.1ff30275.chunk.js.map": "/seidor-interview-test/static/js/3.1ff30275.chunk.js.map",
+    "index.html": "/seidor-interview-test/index.html",
+    "static/css/main.6e34615a.chunk.css.map": "/seidor-interview-test/static/css/main.6e34615a.chunk.css.map",
+    "static/js/2.d20bc042.chunk.js.LICENSE.txt": "/seidor-interview-test/static/js/2.d20bc042.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.62c9886a.js",
+    "static/js/2.d20bc042.chunk.js",
+    "static/css/main.6e34615a.chunk.css",
+    "static/js/main.b95a689b.chunk.js"
+  ]
+}
