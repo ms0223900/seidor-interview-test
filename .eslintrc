@@ -8,11 +8,14 @@
       "warn",
       2
     ],
+    "quotes": [
+      "warn",
+      "single",
+    ],
     "semi": [
       "warn",
       "always"
-    ],
-    "@typescript-eslint/no-require-imports": "error"
+    ]
   },
   "plugins": ["import", "@typescript-eslint"]
 }

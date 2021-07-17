@@ -1,14 +1,12 @@
 import React, { memo } from 'react';
 import { Box } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
+import StepStatus from 'components/Steps/StepStatus';
 
 const StepView = () => {
-  const {
-    step
-  } = useParams<{ step: string }>();
   return (
     <Box>
-      {step}
+      <StepStatus stepNow={2} />
     </Box>
   );
 };
