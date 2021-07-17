@@ -33,9 +33,9 @@ const StepView = () => {
   return (
     <Container className={classes.root}>
       <StepStatus stepNow={stepNow} />
-      {loading && (
+      {/* {loading && (
         <CircularProgress />
-      )}
+      )} */}
       <Paper elevation={3} className={classes.stepsWrapper}>
         {stepNow === 1 && (
           <StepOneMyData

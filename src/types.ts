@@ -1,6 +1,6 @@
 export type CallBack<Params extends any=[], Return extends any={}> = (params?: Params) => Return
 
-export type Locales = 'zh_CN' | 'en'
+export type Locales = 'zh-cn' | 'en'
 
 export interface PaymentFormValues {
   name: string

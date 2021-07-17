@@ -1,4 +1,4 @@
-import React, { memo, ReactNode } from 'react';
+import React, { Fragment, memo, ReactNode } from 'react';
 import { Box, makeStyles, Typography } from '@material-ui/core';
 import { CheckOutlined } from '@material-ui/icons';
 import { SingleStepStatusData, StepStatusItemProps, StepStatusProps } from './types';
@@ -50,12 +50,12 @@ const StepStatus = ({
   return (
     <Box className={classes.root}>
       {getStepListData(stepNow).map((data, i) => (
-        <>
+        <Fragment key={i}>
           {i > 0 && (
             <Box className={classes.middleLine} />
           )}
           <StepItem {...data}/>
-        </>
+        </Fragment>
       ))}
     </Box>
   );

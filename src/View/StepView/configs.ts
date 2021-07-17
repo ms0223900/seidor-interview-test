@@ -4,4 +4,4 @@ export const stepTitles = [
   'My Data', 'Payment'
 ];
 
-export const PAYMENT_FAILED_PROPABILITY = 0.1;
+export const PAYMENT_FAILED_PROPABILITY = 0.05;

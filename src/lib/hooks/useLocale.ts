@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { Locales } from 'types';
 
 const useLocale = () => {
-  const [locale, setLocale] = useState<Locales>('en');
+  const [localeVal, setLocale] = useState<Locales>('en');
+
+  const handleChangeLocale = useCallback((e: ChangeEvent<any>) => {
+    setLocale(e.target.value as Locales);
+  }, []);
 
   return ({
-    locale,
+    localeVal,
     setLocale,
+    handleChangeLocale,
   });
 };
 

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 import './index.css';
+import 'styles/styles.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import theme from './themes/theme';

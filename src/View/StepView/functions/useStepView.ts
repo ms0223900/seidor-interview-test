@@ -32,12 +32,12 @@ const useStepView = () => {
       setLoading(true);
       const res = await sendPaymentRequest(formValues);
       setLoading(false);
-      
-      setPaymentRes(
-        PaymentResHandlers.parseRes(res, locale as Locales)
-      );
+      if(res) {
+        setPaymentRes(
+          PaymentResHandlers.parseRes(res, locale as Locales)
+        );
+      }
       history.push(`/checkout/${routes.checkout['step-3-order-confirmation']}`);
-      setStepNow(3);
     })();
   }, [formValues, history, locale]);
 

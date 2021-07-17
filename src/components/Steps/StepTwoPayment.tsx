@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Box, Button, makeStyles, Typography } from '@material-ui/core';
+import { Box, Button, CircularProgress, makeStyles, Typography } from '@material-ui/core';
 import { stepTitles } from 'View/StepView/configs';
 import { ArrowLeft, ArrowRight, CreditCard } from '@material-ui/icons';
 import images from 'static/images';
@@ -70,8 +70,14 @@ const StepTwoPayment = (props: StepTwoPaymentProps) => {
             <Typography>{'Back'}</Typography>
           </Button>
           <Button variant={'outlined'} color={'primary'} onClick={onPay} disabled={loading}>
-            <Typography>{'Pay'}</Typography>
-            <ArrowRight />
+            {loading ? (
+              <CircularProgress />
+            ) : (
+              <>
+                <Typography>{'Pay'}</Typography>
+                <ArrowRight />
+              </>
+            )}
           </Button>
         </Box>
       </Box>
