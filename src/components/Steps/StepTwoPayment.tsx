@@ -3,8 +3,15 @@ import { Box, Button, Typography } from '@material-ui/core';
 import { stepTitles } from 'View/StepView/configs';
 import { ArrowLeft, ArrowRight, CreditCard } from '@material-ui/icons';
 import images from 'static/images';
+import { StepTwoPaymentProps } from './types';
 
-const StepTwoPayment = () => {
+const StepTwoPayment = (props: StepTwoPaymentProps) => {
+  const {
+    loading,
+    onBack,
+    onPay,
+  } = props;
+
   return (
     <Box>
       <Typography variant={'h2'}>
@@ -25,16 +32,17 @@ const StepTwoPayment = () => {
             24 hours.`}
           </Typography>
           <Box>
-            {[]}
-            <img src={images.icon_master_card.src} alt={images.icon_visa.name} />
+            {[images.icon_master_card, images.icon_visa].map((img, i) => (
+              <img key={i} src={img.src} alt={img.name} />
+            ))}
           </Box>
         </Box>
         <Box>
-          <Button>
+          <Button onClick={onBack} disabled={loading}>
             <ArrowLeft />
             <Typography>{'Back'}</Typography>
           </Button>
-          <Button>
+          <Button onClick={onPay} disabled={loading}>
             <Typography>{'Pay'}</Typography>
             <ArrowRight />
           </Button>

@@ -3,11 +3,17 @@ import { Box, Button, TextField, Typography } from '@material-ui/core';
 import { ArrowRight, Title } from '@material-ui/icons';
 import { stepTitles } from 'View/StepView/configs';
 import { StepOneMyDataProps } from './types';
+import { PaymentFormValues } from 'types';
+
+const inputKeys: Array<(keyof StepOneMyDataProps['values'])> = [
+  'name', 'lastName'
+];
 
 const StepOneMyData = (props: StepOneMyDataProps) => {
   const {
     values,
     onContinue,
+    onInputForm,
   } = props;
   
   return (
@@ -18,8 +24,21 @@ const StepOneMyData = (props: StepOneMyDataProps) => {
       <Typography>
         {'Please enter your personal data and press continue'}
       </Typography>
-      <TextField name="name" placeholder="Name" required={true} value={values.name} />
-      <TextField name="last-name" placeholder="Last Name" required={true} value={values.lastName} />
+      {(inputKeys).map((key) => (
+        <>
+          <TextField
+            key={key}
+            variant={'outlined'}
+            error={!values[key]}
+            name={key}
+            label={key}
+            placeholder={key.toUpperCase()}
+            required={true}
+            value={values[key]}
+            onChange={onInputForm(key)} 
+          />
+        </>
+      ))}
       <Box>
         <Button onClick={onContinue}>
           {'Continue'}

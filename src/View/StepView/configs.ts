@@ -9,3 +9,5 @@ export const checkoutRoutesMappginSteps = {
   [routes.checkout['step-2-payment']]: 2,
   [routes.checkout['step-3-order-confirmation']]: 3,
 };
+
+export const PAYMENT_FAILED_PROPABILITY = 0.1;

@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { CallBack } from 'types';
+import { ChangeEvent, ReactNode } from 'react';
+import { CallBack, PaymentFormValues } from 'types';
 
 export interface SingleStepStatusData {
   isDone: boolean
@@ -19,5 +19,19 @@ export interface StepOneMyDataProps {
     name: string
     lastName: string
   }
+  onInputForm: (key: keyof PaymentFormValues) => (e: ChangeEvent<any>) => any
   onContinue: CallBack<any, any>
+}
+
+export interface StepTwoPaymentProps {
+  loading: boolean
+  onBack: CallBack<any, any>
+  onPay: CallBack<any, any>
+}
+
+export interface StepThreeOrderConfirmationProps {
+  paymentInfo: {
+    title: string
+    message: string
+  } | undefined
 }
