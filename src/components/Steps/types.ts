@@ -1,5 +1,5 @@
 import { ChangeEvent, ReactNode } from 'react';
-import { CallBack, PaymentFormValues } from 'types';
+import { CallBack, Locales, PaymentFormValues } from 'types';
 
 export interface SingleStepStatusData {
   isDone: boolean
@@ -30,8 +30,8 @@ export interface StepTwoPaymentProps {
 }
 
 export interface StepThreeOrderConfirmationProps {
-  paymentInfo: {
+  intlPaymentInfo: Record<Locales, {
     title: string
     message: string
-  } | undefined
+  }> | undefined
 }

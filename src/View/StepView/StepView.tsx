@@ -53,7 +53,7 @@ const StepView = () => {
         )}
         {stepNow === 3 && (
           <StepThreeOrderConfirmationContainer 
-            paymentInfo={paymentRes} 
+            intlPaymentInfo={paymentRes} 
           />
         )}
       </Paper>

@@ -19,7 +19,7 @@ const useStepView = () => {
   const initStepNow = StepHandlers.convertParamsToStep(step);
 
   const [stepNow, setStepNow] = useState(initStepNow || 1);
-  const [paymentRes, setPaymentRes] = useState<StepThreeOrderConfirmationProps['paymentInfo']>();
+  const [paymentRes, setPaymentRes] = useState<StepThreeOrderConfirmationProps['intlPaymentInfo']>();
   const [loading, setLoading] = useState(false);
   const [formValues, setForm] = useState<PaymentFormValues>({
     name: '',
@@ -34,12 +34,12 @@ const useStepView = () => {
       setLoading(false);
       if(res) {
         setPaymentRes(
-          PaymentResHandlers.parseRes(res, locale as Locales)
+          PaymentResHandlers.parseRes(res)
         );
       }
       history.push(`/checkout/${routes.checkout['step-3-order-confirmation']}`);
     })();
-  }, [formValues, history, locale]);
+  }, [formValues, history]);
 
   const handleChangeStep = useCallback((step: number) => {
     // setStepNow(s => step || s + 1);

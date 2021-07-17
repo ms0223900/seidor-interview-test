@@ -1,11 +1,17 @@
+import { StepThreeOrderConfirmationProps } from 'components/Steps/types';
 import { Locales, PaymentSuccessResponse } from 'types';
 
 const PaymentResHandlers = {
-  parseRes(res: PaymentSuccessResponse, locale='en' as Locales) {
-    const resLocale = locale === 'en' ? 'en' : 'zh_CN';
+  parseRes(res: PaymentSuccessResponse): StepThreeOrderConfirmationProps['intlPaymentInfo'] {
     return ({
-      title: res.title[resLocale],
-      message: res.message[resLocale],
+      'zh-cn': {
+        title: res.title.zh_CN,
+        message: res.message.zh_CN,
+      },
+      'en': {
+        title: res.title.en,
+        message: res.message.en,
+      }
     });
   }
 };
