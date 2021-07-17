@@ -13,7 +13,7 @@ const StepThreeOrderConfirmation = (props: StepThreeOrderConfirmationProps) => {
   }
   return (
     <Box>
-      <Typography variant={'h2'}>
+      <Typography variant={'h4'}>
         {props.paymentInfo.title}
       </Typography>
       <Typography>

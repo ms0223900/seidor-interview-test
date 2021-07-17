@@ -1,22 +1,22 @@
 import PaymentResHandlers from 'api/functions/PaymentResHandlers';
 import sendPaymentRequest from 'api/functions/sendPaymentRequest';
 import { StepThreeOrderConfirmationProps } from 'components/Steps/types';
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory, useParams } from 'react-router-dom';
-import routes from 'routes/routes';
+import routes, { RoutesCheckoutParamsKey } from 'routes/routes';
 import { Locales, PaymentFormValues } from 'types';
-import { checkoutRoutesMappginSteps } from '../configs';
+import StepHandlers from './StepHandlers';
 
 const useStepView = () => {
   const {
     step
-  } = useParams<{ step: string }>();
+  } = useParams<{ step: RoutesCheckoutParamsKey }>();
   const history = useHistory();
   const {
     locale,
   } = useIntl();
-  const initStepNow = checkoutRoutesMappginSteps[step];
+  const initStepNow = StepHandlers.convertParamsToStep(step);
 
   const [stepNow, setStepNow] = useState(initStepNow || 1);
   const [paymentRes, setPaymentRes] = useState<StepThreeOrderConfirmationProps['paymentInfo']>();
@@ -41,9 +41,11 @@ const useStepView = () => {
     })();
   }, [formValues, history, locale]);
 
-  const handleChangeStep = useCallback((step?: number) => {
-    setStepNow(s => step || s + 1);
-  }, []);
+  const handleChangeStep = useCallback((step: number) => {
+    // setStepNow(s => step || s + 1);
+    const params = StepHandlers.convertStepToParams(step);
+    history.push(`/checkout/${params}`);
+  }, [history]);
 
   const handleSetForm = useCallback((key: keyof PaymentFormValues) => (e: ChangeEvent<any>) => {
     setForm(f => ({
@@ -51,6 +53,11 @@ const useStepView = () => {
       [key]: e.target.value
     }));
   }, []);
+
+  useEffect(() => {
+    const stepNow = StepHandlers.convertParamsToStep(step);
+    setStepNow(stepNow);
+  }, [step]);
 
   return ({
     loading,

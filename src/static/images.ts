@@ -10,11 +10,11 @@ export type ImageKeys =
 const images: Record<ImageKeys, SingleImage> = {
   'icon_visa': {
     name: 'icon_visa',
-    src: './assets/icon_visa.png',
+    src: process.env.PUBLIC_URL + '/assets/icon_visa.png',
   },
   'icon_master_card': {
     name: 'icon_master_card',
-    src: './assets/icon_master_card.png',
+    src: process.env.PUBLIC_URL + '/assets/icon_master_card.png',
   },
 };
 

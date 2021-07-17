@@ -1,9 +1,33 @@
 import React, { memo } from 'react';
-import { Box, Button, Typography } from '@material-ui/core';
+import { Box, Button, makeStyles, Typography } from '@material-ui/core';
 import { stepTitles } from 'View/StepView/configs';
 import { ArrowLeft, ArrowRight, CreditCard } from '@material-ui/icons';
 import images from 'static/images';
 import { StepTwoPaymentProps } from './types';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+     
+  },
+  bottomWrapper: {
+    maxWidth: 400,
+    margin: 'auto',
+  },
+  infoWrapper: {
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+    border: '1px solid #aaa',
+    borderRadius: theme.spacing(0.5),
+    '& img': {
+      maxWidth: 60,
+    }
+  },
+  buttonsWrapper: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingTop: theme.spacing(2),
+  }
+}));
 
 const StepTwoPayment = (props: StepTwoPaymentProps) => {
   const {
@@ -11,20 +35,23 @@ const StepTwoPayment = (props: StepTwoPaymentProps) => {
     onBack,
     onPay,
   } = props;
+  const classes = useStyles();
 
   return (
     <Box>
-      <Typography variant={'h2'}>
+      <Typography variant={'h4'}>
         {stepTitles[1]}
       </Typography>
       <Typography>
         {'After making the payment you will receive a con'}
       </Typography>
-      <Box>
-        <Box>
+      <Box className={classes.bottomWrapper}>
+        <Box className={classes.infoWrapper}>
           <Box>
-            <CreditCard />
-            <Typography>{'Credit Card'}</Typography>
+            <CreditCard style={{
+              fontSize: '6em'
+            }} />
+            <Typography variant={'h5'}>{'Credit Card'}</Typography>
           </Box>
           <Typography>
             {`You will be redirected to a secure payment platform. This is a
@@ -37,12 +64,12 @@ const StepTwoPayment = (props: StepTwoPaymentProps) => {
             ))}
           </Box>
         </Box>
-        <Box>
-          <Button onClick={onBack} disabled={loading}>
+        <Box className={classes.buttonsWrapper}>
+          <Button variant={'outlined'} color={'primary'} onClick={onBack} disabled={loading}>
             <ArrowLeft />
             <Typography>{'Back'}</Typography>
           </Button>
-          <Button onClick={onPay} disabled={loading}>
+          <Button variant={'outlined'} color={'primary'} onClick={onPay} disabled={loading}>
             <Typography>{'Pay'}</Typography>
             <ArrowRight />
           </Button>

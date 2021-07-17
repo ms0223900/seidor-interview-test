@@ -8,6 +8,8 @@ import { stepTitles } from 'View/StepView/configs';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    margin: 'auto',
+    paddingBottom: theme.spacing(3),
   },
   middleLine: {
     position: 'relative',
